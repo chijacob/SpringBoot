@@ -16,8 +16,6 @@ import com.in28minutes.springboot.rest.example.student.StudentNotFoundException;
 public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
   @ExceptionHandler(Exception.class)
-  public final ResponseEntity<ExceptionResponse> handleAllExceptions(Exception ex, WebRequest request) {
-int abc ="";
     ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(),
         request.getDescription(false));
     return new ResponseEntity<>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
